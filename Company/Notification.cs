@@ -16,7 +16,7 @@ namespace Company
         {
             InitializeComponent();
 
-            l_Message.Text = s_Massage;
+            t_Message.Text = s_Massage;
         }
 
         private void b_OK_Click(object sender, EventArgs e)

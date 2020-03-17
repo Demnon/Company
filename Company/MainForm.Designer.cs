@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.l_Explorer = new System.Windows.Forms.Label();
-            this.l_Element = new System.Windows.Forms.Label();
             this.t_StructDepartments = new System.Windows.Forms.TreeView();
             this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
+            this.l_Explorer = new System.Windows.Forms.Label();
             this.d_Table = new System.Windows.Forms.DataGridView();
+            this.l_Element = new System.Windows.Forms.Label();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -92,28 +92,16 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // addToolStripMenuItem
+            // cancelToolStripMenuItem
             // 
-            this.addToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.addToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.addToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripMenuItem.Image")));
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.addToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
-            this.addToolStripMenuItem.Text = "Add";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.deleteToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.deleteToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.cancelToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cancelToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.cancelToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cancelToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cancelToolStripMenuItem.Image")));
+            this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
+            this.cancelToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
+            this.cancelToolStripMenuItem.Text = "Cancel";
             // 
             // saveToolStripMenuItem
             // 
@@ -126,16 +114,28 @@
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
             this.saveToolStripMenuItem.Text = "Save";
             // 
-            // cancelToolStripMenuItem
+            // deleteToolStripMenuItem
             // 
-            this.cancelToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.cancelToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.cancelToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cancelToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cancelToolStripMenuItem.Image")));
-            this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
-            this.cancelToolStripMenuItem.Text = "Cancel";
+            this.deleteToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.deleteToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.deleteToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.addToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripMenuItem.Image")));
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.addToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
+            this.addToolStripMenuItem.Text = "Add";
             // 
             // splitContainer1
             // 
@@ -158,32 +158,6 @@
             this.splitContainer1.SplitterDistance = 261;
             this.splitContainer1.TabIndex = 1;
             // 
-            // l_Explorer
-            // 
-            this.l_Explorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(209)))));
-            this.l_Explorer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.l_Explorer.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.l_Explorer.ForeColor = System.Drawing.Color.White;
-            this.l_Explorer.Location = new System.Drawing.Point(0, 0);
-            this.l_Explorer.Name = "l_Explorer";
-            this.l_Explorer.Size = new System.Drawing.Size(257, 25);
-            this.l_Explorer.TabIndex = 0;
-            this.l_Explorer.Text = "Explorer";
-            this.l_Explorer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // l_Element
-            // 
-            this.l_Element.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(209)))));
-            this.l_Element.Dock = System.Windows.Forms.DockStyle.Top;
-            this.l_Element.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.l_Element.ForeColor = System.Drawing.Color.White;
-            this.l_Element.Location = new System.Drawing.Point(0, 0);
-            this.l_Element.Name = "l_Element";
-            this.l_Element.Size = new System.Drawing.Size(515, 25);
-            this.l_Element.TabIndex = 1;
-            this.l_Element.Text = "Element";
-            this.l_Element.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // t_StructDepartments
             // 
             this.t_StructDepartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
@@ -205,6 +179,19 @@
             this.imageListIcons.ImageSize = new System.Drawing.Size(20, 20);
             this.imageListIcons.TransparentColor = System.Drawing.Color.White;
             // 
+            // l_Explorer
+            // 
+            this.l_Explorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(209)))));
+            this.l_Explorer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.l_Explorer.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_Explorer.ForeColor = System.Drawing.Color.White;
+            this.l_Explorer.Location = new System.Drawing.Point(0, 0);
+            this.l_Explorer.Name = "l_Explorer";
+            this.l_Explorer.Size = new System.Drawing.Size(257, 25);
+            this.l_Explorer.TabIndex = 0;
+            this.l_Explorer.Text = "Explorer";
+            this.l_Explorer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // d_Table
             // 
             this.d_Table.AllowUserToAddRows = false;
@@ -213,24 +200,24 @@
             this.d_Table.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
             this.d_Table.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.d_Table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.d_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.d_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.d_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.d_Table.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.d_Table.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.d_Table.DefaultCellStyle = dataGridViewCellStyle4;
             this.d_Table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.d_Table.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.d_Table.EnableHeadersVisualStyles = false;
@@ -240,6 +227,19 @@
             this.d_Table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.d_Table.Size = new System.Drawing.Size(515, 535);
             this.d_Table.TabIndex = 2;
+            // 
+            // l_Element
+            // 
+            this.l_Element.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(209)))));
+            this.l_Element.Dock = System.Windows.Forms.DockStyle.Top;
+            this.l_Element.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_Element.ForeColor = System.Drawing.Color.White;
+            this.l_Element.Location = new System.Drawing.Point(0, 0);
+            this.l_Element.Name = "l_Element";
+            this.l_Element.Size = new System.Drawing.Size(515, 25);
+            this.l_Element.TabIndex = 1;
+            this.l_Element.Text = "Element";
+            this.l_Element.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -257,6 +257,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Structure of company";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
