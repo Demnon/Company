@@ -47,14 +47,14 @@ namespace Company
                     d_Database = new Database(s_ConnectString);
 
                     //*****************************
-                    DataSet dd = d_Database.GetDepartments("45594551-05eb-49f5-92e9-df96f4111d22");
+                   /* DataSet dd = d_Database.GetDepartments("45594551-05eb-49f5-92e9-df96f4111d22");
                     for (int i=0;i<dd.Tables.Count;i++)
                     {
                         for (int j=0;j<dd.Tables[i].Rows.Count;j++)
                         {
                             string dfgf = "";
                         }
-                    }
+                    }*/
                 }
                
             }
