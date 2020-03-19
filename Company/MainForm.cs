@@ -28,12 +28,12 @@ namespace Company
             {
                 // Если данные введены, пробуем подключаться
                 DataConnection d_DataConnection = new DataConnection();
-                if(d_DataConnection.ShowDialog() == DialogResult.OK)
+                if(d_DataConnection.ShowDialog().Equals(DialogResult.OK))
                 {
                     //Вызов подключения
                     string s_ConnectString = "";
                     //если проверка подлинности Sql
-                    if (d_DataConnection.GetAuthentication== "Authentication SQL Server")
+                    if (d_DataConnection.GetAuthentication.Equals("Authentication SQL Server"))
                     {
                         s_ConnectString = @"Data Source=" + d_DataConnection.GetDataSource + ";Initial Catalog="+d_DataConnection.GetDatabase+";Persist Security Info=True;User ID="
                         + d_DataConnection.GetUsername + ";Password=" + d_DataConnection.GetPassword;
@@ -44,28 +44,30 @@ namespace Company
                         s_ConnectString = @"Data Source=" + d_DataConnection.GetDataSource + ";Initial Catalog=" + d_DataConnection.GetDatabase + ";Persist Security Info=True;Integrated Security=true";
                     }
 
+                    // Очистка ресурсов (если переподключение к другой бд, например)
+                    if (d_Database != null)
+                    {
+                        d_Database.Dispose();
+                    }
+                       
+                    // Новое подключение
                     d_Database = new Database(s_ConnectString);
 
-                    //*****************************
-                   /* DataSet dd = d_Database.GetDepartments("45594551-05eb-49f5-92e9-df96f4111d22");
-                    for (int i=0;i<dd.Tables.Count;i++)
-                    {
-                        for (int j=0;j<dd.Tables[i].Rows.Count;j++)
-                        {
-                            string dfgf = "";
-                        }
-                    }*/
+                    // Построение дерева
+                    t_StructDepartments.Nodes.Clear();
+                    t_StructDepartments.Nodes.Add(StructureTree.BuildTree(d_Database));
+                    t_StructDepartments.SelectedNode = t_StructDepartments.TopNode;
                 }
                
             }
             catch (SqlException e_Ex)
             {
-                new Notification(e_Ex.ToString()).ShowDialog();
-                //new Notification("Соединение с базой данных не установлено, проверьте правильность введенных данных. Возможно, сервер не активен либо базы данных не существует.").ShowDialog();
+                new Notification("Соединение с базой данных не установлено, проверьте правильность введенных данных. Возможно, сервер не активен либо базы данных не существует.").ShowDialog();
             }
             catch (Exception e_Ex)
             {
-                new Notification(e_Ex.Message).ShowDialog();
+                new Notification(e_Ex.ToString()).ShowDialog();
+                //new Notification(e_Ex.Message).ShowDialog();
             }
         }
 
@@ -81,6 +83,26 @@ namespace Company
             if (d_Database != null)
             {
                 d_Database.Dispose();
+            }
+        }
+
+        // После выбора узла дерева открытие соответствующей таблицы и добавление контекстного меню к кнопкам добавить и удалить
+        private void t_StructDepartments_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            // Контекстное меню для кнопок добавить и удалить
+            m_Add.DropDownItems.Clear();
+            m_Delete.DropDownItems.Clear();
+            for (int i=0;i<t_StructDepartments.SelectedNode.ContextMenuStrip.Items.Count;i++)
+            {
+                string s_Text = t_StructDepartments.SelectedNode.ContextMenuStrip.Items[i].Text;
+                if (s_Text.Contains("Add"))
+                {
+                    m_Add.DropDownItems.Add(s_Text);
+                }
+                else
+                {
+                    m_Delete.DropDownItems.Add(s_Text);
+                }
             }
         }
     }

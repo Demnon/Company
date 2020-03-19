@@ -7,7 +7,7 @@ namespace Company
         // Рекурсивный запрос на получение данных из таблицы Department
         private string RequestGetDepartments(string s_ParentDepartmentID)
         {
-            if (s_ParentDepartmentID =="")
+            if (s_ParentDepartmentID.Equals(""))
             {
                 return "WITH Recursive (ID, Name, Code, ParentDepartmentID) " +
                     "AS " +

@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.t_StructDepartments = new System.Windows.Forms.TreeView();
             this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
@@ -64,8 +64,8 @@
             this.exitToolStripMenuItem,
             this.cancelToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.addToolStripMenuItem});
+            this.m_Delete,
+            this.m_Add});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(784, 40);
@@ -114,28 +114,28 @@
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
             this.saveToolStripMenuItem.Text = "Save";
             // 
-            // deleteToolStripMenuItem
+            // m_Delete
             // 
-            this.deleteToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.deleteToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.deleteToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.m_Delete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.m_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.m_Delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_Delete.Image = ((System.Drawing.Image)(resources.GetObject("m_Delete.Image")));
+            this.m_Delete.Name = "m_Delete";
+            this.m_Delete.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.m_Delete.Size = new System.Drawing.Size(36, 36);
+            this.m_Delete.Text = "Delete";
             // 
-            // addToolStripMenuItem
+            // m_Add
             // 
-            this.addToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.addToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.addToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripMenuItem.Image")));
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.addToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
-            this.addToolStripMenuItem.Text = "Add";
+            this.m_Add.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.m_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.m_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_Add.Image = ((System.Drawing.Image)(resources.GetObject("m_Add.Image")));
+            this.m_Add.Name = "m_Add";
+            this.m_Add.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.m_Add.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.m_Add.Size = new System.Drawing.Size(36, 36);
+            this.m_Add.Text = "Add";
             // 
             // splitContainer1
             // 
@@ -163,15 +163,14 @@
             this.t_StructDepartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
             this.t_StructDepartments.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.t_StructDepartments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.t_StructDepartments.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.t_StructDepartments.ImageIndex = 0;
-            this.t_StructDepartments.ImageList = this.imageListIcons;
+            this.t_StructDepartments.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.t_StructDepartments.HotTracking = true;
             this.t_StructDepartments.Indent = 20;
             this.t_StructDepartments.Location = new System.Drawing.Point(0, 25);
             this.t_StructDepartments.Name = "t_StructDepartments";
-            this.t_StructDepartments.SelectedImageIndex = 0;
             this.t_StructDepartments.Size = new System.Drawing.Size(257, 535);
             this.t_StructDepartments.TabIndex = 1;
+            this.t_StructDepartments.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.t_StructDepartments_AfterSelect);
             // 
             // imageListIcons
             // 
@@ -200,24 +199,24 @@
             this.d_Table.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
             this.d_Table.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.d_Table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.d_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.d_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.d_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.d_Table.ColumnHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.d_Table.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.d_Table.DefaultCellStyle = dataGridViewCellStyle2;
             this.d_Table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.d_Table.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.d_Table.EnableHeadersVisualStyles = false;
@@ -276,8 +275,8 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem m_Delete;
+        private System.Windows.Forms.ToolStripMenuItem m_Add;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView t_StructDepartments;
         private System.Windows.Forms.ImageList imageListIcons;

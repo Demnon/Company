@@ -46,6 +46,7 @@ namespace Company
             string s_Request = RequestGetDepartments(s_ParentDepartmentID);
             s_Data = new SqlDataAdapter(s_Request, s_Connection);
             s_Data.Fill(d_Data);
+            d_Data.Tables[0].TableName = "Department";
         }
 
         // Обновление данных в таблице Department (вставка, удаление, обновление)
