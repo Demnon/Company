@@ -32,7 +32,8 @@ namespace Company
             if (s_Tag[0].Equals("employee"))
             {
                 DataGridViewColumn d_Column = new DataGridViewColumn(d_Table.Columns[0].HeaderCell);
-                d_Table.Columns.Insert(5, d_Column);
+                d_Table.Columns.Add("SDfd","Dfd");
+                d_Table.Columns[d_Table.Columns.Count-1].DisplayIndex = 5;
             }
         }
 
