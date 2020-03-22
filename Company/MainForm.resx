@@ -1455,7 +1455,7 @@
         AAAAAAAAAAAAAAAAAAAAQDvvvfcVR3y54h7FVkYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="cancelToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="m_Cancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA+cAAAPgCAYAAABQ+w0EAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAA3RRJREFUeF7s/VtwXOeB3v3mOtdxxqIlngmQlE1qPCBAnBvn7saZQAMgGyAFQTyJ
@@ -2404,7 +2404,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAANgt/sf/+P8B0Gte8mcEvvsAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="saveToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="m_Save.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgIAAAHyCAYAAACZP6ZIAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAKSpJREFUeF7t3WtW3FbCNeDXBnMz9+Iek9hZne7+4xkwBY+AaX0zYARMoWbAiOo7

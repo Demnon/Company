@@ -19,6 +19,11 @@ namespace Company
         SqlDataAdapter s_Data;
         // Данные
         DataSet d_Data;
+        // Имя таблицы SQL, из которой получены данные
+        string s_NameTable;
+        // Словарь для вызова соответствующих методов данного класса (замена if else при выводе в таблицу, заполняется в дереве, 
+        // так как зависит от надписей в дереве)
+        readonly Dictionary<string, Action<string>> d_NameMethods;
 
         public Database(string s_ConnectString)
         {
@@ -26,31 +31,92 @@ namespace Company
             s_Connection = new SqlConnection(this.s_ConnectString);
             s_Connection.Open();
             d_Data = new DataSet();
+            s_NameTable = "";
+
+            // Инициализация словаря
+            d_NameMethods = new Dictionary<string, Action<string>>();
+            d_NameMethods.Add("0|Companies", GetDepartments);
+            d_NameMethods.Add("0|Departments", GetDepartments);
+            d_NameMethods.Add("0|RecursiveDepartments", GetRecursiveDepartments);
+            d_NameMethods.Add("0|Employees", GetEmployees);
+            d_NameMethods.Add("0|Department", GetDepartment);
+            d_NameMethods.Add("0|Employee", GetEmployee);
+            d_NameMethods.Add("1|Update", UpdateInfo);
         }
 
         public DataSet GetSetDataset
         {
-            get
-            {
-                return d_Data;
-            }
-            set
-            {
-                d_Data = value;
-            }
+            get{ return d_Data; }
+            set{ d_Data = value; }
+        }
+
+        public string GetSetNameTable
+        {
+            get { return s_NameTable; }
+            set { s_NameTable = value; }
+        }
+
+        // Вызов необходимого метода обмена информацией с БД в соответствии с входной строкой
+        // Строка: 0 - получение либо 1 - обновление|Ключевое слово
+        // Передаваемый параметр в метод
+        public void CallMethod(string s_InputString, string s_Parameter)
+        {
+            // Вызов нужного метода работы с БД
+            d_NameMethods[s_InputString](s_Parameter);
         }
 
         // Получение данных из таблицы Department
-        public void GetDepartments(string s_ParentDepartmentID)
+        private void GetDepartments(string s_ParentDepartmentID)
         {
             string s_Request = RequestGetDepartments(s_ParentDepartmentID);
             s_Data = new SqlDataAdapter(s_Request, s_Connection);
+            d_Data.Tables.Clear();
             s_Data.Fill(d_Data);
-            d_Data.Tables[0].TableName = "Department";
+            s_NameTable = "Department";
         }
 
-        // Обновление данных в таблице Department (вставка, удаление, обновление)
-        public void UpdateDepartments()
+        // Получение всех данных из таблицы Department с помощью рекурсивного запроса
+        private void GetRecursiveDepartments(string s_Sender)
+        {
+            string s_Request = RecursiveRequestGetDepartments();
+            s_Data = new SqlDataAdapter(s_Request, s_Connection);
+            d_Data.Tables.Clear();
+            s_Data.Fill(d_Data);
+            s_NameTable = "Department";
+        }
+
+        // Получение данных для конкретного отдела
+        private void GetDepartment(string s_ID)
+        {
+            string s_Request = RequestGetDepartment(s_ID);
+            s_Data = new SqlDataAdapter(s_Request, s_Connection);
+            d_Data.Tables.Clear();
+            s_Data.Fill(d_Data);
+            s_NameTable = "Department";
+        }
+
+        // Получение данных из таблицы Employee
+        private void GetEmployees(string s_DepartmentID)
+        {
+            string s_Request = RequestGetEmployees(s_DepartmentID);
+            s_Data = new SqlDataAdapter(s_Request, s_Connection);
+            d_Data.Tables.Clear();
+            s_Data.Fill(d_Data);
+            s_NameTable = "Employee";
+        }
+
+        // Получение данных для конкретного сотрудника
+        private void GetEmployee(string s_ID)
+        {
+            string s_Request = RequestGetEmployee(s_ID);
+            s_Data = new SqlDataAdapter(s_Request, s_Connection);
+            d_Data.Tables.Clear();
+            s_Data.Fill(d_Data);
+            s_NameTable = "Employee";
+        }
+
+        // Обновление данных в любой таблице (вставка, удаление, обновление)
+        private void UpdateInfo(string s_Sender)
         {
             SqlCommandBuilder s_Command = new SqlCommandBuilder(s_Data);
             s_Data.Update(d_Data);
@@ -69,6 +135,7 @@ namespace Company
                 s_Connection.Close();
                 s_Connection.Dispose();
                 s_ConnectString = "";
+                s_NameTable = "";
             }
         }
     }

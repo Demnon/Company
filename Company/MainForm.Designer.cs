@@ -35,8 +35,8 @@
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_Cancel = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -62,8 +62,8 @@
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToolStripMenuItem,
             this.exitToolStripMenuItem,
-            this.cancelToolStripMenuItem,
-            this.saveToolStripMenuItem,
+            this.m_Cancel,
+            this.m_Save,
             this.m_Delete,
             this.m_Add});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
@@ -92,27 +92,27 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // cancelToolStripMenuItem
+            // m_Cancel
             // 
-            this.cancelToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.cancelToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.cancelToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cancelToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cancelToolStripMenuItem.Image")));
-            this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
-            this.cancelToolStripMenuItem.Text = "Cancel";
+            this.m_Cancel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.m_Cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.m_Cancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_Cancel.Image = ((System.Drawing.Image)(resources.GetObject("m_Cancel.Image")));
+            this.m_Cancel.Name = "m_Cancel";
+            this.m_Cancel.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.m_Cancel.Size = new System.Drawing.Size(36, 36);
+            this.m_Cancel.Text = "Cancel";
             // 
-            // saveToolStripMenuItem
+            // m_Save
             // 
-            this.saveToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.saveToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.saveToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(36, 36);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.m_Save.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.m_Save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.m_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.m_Save.Image = ((System.Drawing.Image)(resources.GetObject("m_Save.Image")));
+            this.m_Save.Name = "m_Save";
+            this.m_Save.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.m_Save.Size = new System.Drawing.Size(36, 36);
+            this.m_Save.Text = "Save";
             // 
             // m_Delete
             // 
@@ -196,29 +196,28 @@
             this.d_Table.AllowUserToAddRows = false;
             this.d_Table.AllowUserToDeleteRows = false;
             this.d_Table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.d_Table.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.d_Table.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
             this.d_Table.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.d_Table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.d_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.d_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.d_Table.ColumnHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.d_Table.DefaultCellStyle = dataGridViewCellStyle2;
             this.d_Table.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.d_Table.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.d_Table.EnableHeadersVisualStyles = false;
             this.d_Table.Location = new System.Drawing.Point(0, 25);
             this.d_Table.Name = "d_Table";
@@ -226,6 +225,7 @@
             this.d_Table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.d_Table.Size = new System.Drawing.Size(515, 535);
             this.d_Table.TabIndex = 2;
+            this.d_Table.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.d_Table_CellEndEdit);
             // 
             // l_Element
             // 
@@ -273,8 +273,8 @@
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem m_Cancel;
+        private System.Windows.Forms.ToolStripMenuItem m_Save;
         private System.Windows.Forms.ToolStripMenuItem m_Delete;
         private System.Windows.Forms.ToolStripMenuItem m_Add;
         private System.Windows.Forms.SplitContainer splitContainer1;

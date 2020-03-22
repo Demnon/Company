@@ -68,13 +68,13 @@ namespace Company
 			try
 			{
 				// Проверка на наличие DataSources
-				if (t_DataSource.Text == null || t_DataSource.Text == "")
+				if (t_DataSource.Text == null || t_DataSource.Text.Equals(""))
 				{
 					throw new ApplicationException("Enter server!");
 				}
 
 				// Проверка на наличие бд
-				if (t_Database.Text == null || t_Database.Text == "")
+				if (t_Database.Text == null || t_Database.Text.Equals(""))
 				{
 					throw new ApplicationException("Enter database!");
 				}
@@ -82,12 +82,12 @@ namespace Company
 				// Если проверка подлинности SQL
 				if (c_Authentication.SelectedItem.ToString() == "Authentication SQL Server")
 				{	
-					if (t_Username.Text == null || t_Username.Text == "")
+					if (t_Username.Text == null || t_Username.Text.Equals(""))
 					{
 						throw new ApplicationException("Enter username!");
 					}
 
-					if (mt_Password.Text ==null || mt_Password.Text == "")
+					if (mt_Password.Text ==null || mt_Password.Text.Equals(""))
 					{
 						throw new ApplicationException("Enter password!");
 					}
@@ -113,7 +113,7 @@ namespace Company
 		private void c_Authentication_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			// Выбор аутентификации
-			if (c_Authentication.SelectedItem.ToString() == "Authentication Windows")
+			if (c_Authentication.SelectedItem.ToString().Equals("Authentication Windows"))
 			{
 				l_Username.Enabled = false;
 				l_Password.Enabled = false;
