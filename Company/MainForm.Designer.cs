@@ -170,6 +170,7 @@
             this.t_StructDepartments.Name = "t_StructDepartments";
             this.t_StructDepartments.Size = new System.Drawing.Size(257, 535);
             this.t_StructDepartments.TabIndex = 1;
+            this.t_StructDepartments.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.t_StructDepartments_BeforeSelect);
             this.t_StructDepartments.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.t_StructDepartments_AfterSelect);
             // 
             // imageListIcons
@@ -226,6 +227,8 @@
             this.d_Table.Size = new System.Drawing.Size(515, 535);
             this.d_Table.TabIndex = 2;
             this.d_Table.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.d_Table_CellEndEdit);
+            this.d_Table.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.d_Table_CellValidating);
+            this.d_Table.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.d_Table_DataError);
             // 
             // l_Element
             // 

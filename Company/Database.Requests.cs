@@ -6,13 +6,35 @@ namespace Company
     // Запросы и прочие необходимые данные
     public partial class Database
     {
-        // Значения по умолчанию для таблицы Department
-        public static readonly Dictionary<string,string[]> d_DefaultValuesDepartments = new Dictionary<string, string[]>()
+        // Значения null или not null для столбов таблиц
+        public static readonly Dictionary<string, bool[]> d_AllowDBNull = new Dictionary<string, bool[]>()
         {
-            {"Companies", new string[]{"Отдел","O"} },
-            {"Departments", new string[]{"Отдел","O"} },
-            { "Employees", new string[]{"Имя","Фамилия","Отчество", "2000-01-01 00:00:00.000","0000","111111","Должность" } }
+            {"department", new bool[]{false,false,true,true} },
+            { "employee", new bool[]{false,false,false,true,false,true,true,false,false} }
         };
+
+        // Значения по умолчанию для таблиц (s_Parameter - id родительского узла)
+        public static string[] DefaultValues(string s_Name,string s_Parameter)
+        {
+            if (s_Parameter.Equals(""))
+            {
+                return new Dictionary<string, string[]>()
+                {
+                {"companies", new string[]{Guid.NewGuid().ToString(),"Отдел","O",null} },
+                {"departments", new string[]{ Guid.NewGuid().ToString(),"Отдел","O",null} },
+                { "employees", new string[]{"0","Имя","Фамилия","Отчество", "2000-01-01","0000","111111","Должность",s_Parameter} }
+                }[s_Name];
+            }
+            else
+            {
+                return new Dictionary<string, string[]>()
+                {
+                {"companies", new string[]{Guid.NewGuid().ToString(),"Отдел","O",s_Parameter} },
+                {"departments", new string[]{ Guid.NewGuid().ToString(),"Отдел","O",s_Parameter} },
+                { "employees", new string[]{"0","Имя","Фамилия","Отчество", "2000-01-01","0000","111111","Должность",s_Parameter} }
+                }[s_Name];
+            }
+        }
 
         // Рекурсивный запрос на получение всех данных из таблицы Department
         private string RecursiveRequestGetDepartments()

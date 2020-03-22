@@ -18,12 +18,12 @@ namespace Company
             // Создание корневого узла
             TreeNode t_RootNode = new TreeNode("Companies");
             t_RootNode.NodeFont = new Font("Times New Roman", 12, FontStyle.Bold);
-            t_RootNode.Name = "Companies";
-            t_RootNode.Tag = "Department|Companies|";
+            t_RootNode.Name = "companies";
+            t_RootNode.Tag = "department|companies|";
 
             // Контекстное меню узла (для реализации кнопок добавить, удалить)
             t_RootNode.ContextMenuStrip = new ContextMenuStrip();
-            t_RootNode.ContextMenuStrip.Items.Add("Add company(es)");
+            t_RootNode.ContextMenuStrip.Items.Add("Add companies");
             t_RootNode.ContextMenuStrip.Items[t_RootNode.ContextMenuStrip.Items.Count - 1].Visible = false;
             t_RootNode.ContextMenuStrip.Items.Add("Delete selected companies");
             t_RootNode.ContextMenuStrip.Items[t_RootNode.ContextMenuStrip.Items.Count - 1].Visible = false;
@@ -37,7 +37,7 @@ namespace Company
         private static void BuildTreeDepartments(TreeNode t_RootNode, Database d_Database)
         {
             // Получение всех узлов Departments, начиная с корневых узлов - компаний
-            d_Database.CallMethod("0|RecursiveDepartments", "");
+            d_Database.CallMethod("0|recursivedepartments", "");
             DataSet d_Data = d_Database.GetSetDataset.Copy();
             string s_NameTable = d_Database.GetSetNameTable;
 
@@ -53,12 +53,10 @@ namespace Company
                     t_RootNode.LastNode.NodeFont = new Font("Times New Roman", 12);
                     // Добавление контекстного меню для узла
                     t_RootNode.LastNode.ContextMenuStrip = new ContextMenuStrip();
-                    t_RootNode.LastNode.ContextMenuStrip.Items.Add("Add department(s)");
+                    t_RootNode.LastNode.ContextMenuStrip.Items.Add("Add departments");
                     t_RootNode.LastNode.ContextMenuStrip.Items[t_RootNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
-                    t_RootNode.LastNode.ContextMenuStrip.Items.Add("Add employee(s)");
-                    t_RootNode.LastNode.ContextMenuStrip.Items[t_RootNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
-                    t_RootNode.LastNode.ContextMenuStrip.Items.Add("Delete departments");
-                    t_RootNode.LastNode.ContextMenuStrip.Items[t_RootNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
+                    t_RootNode.LastNode.ContextMenuStrip.Items.Add("Add employees");
+                    t_RootNode.LastNode.ContextMenuStrip.Items[t_RootNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;        
                     t_RootNode.LastNode.ContextMenuStrip.Items.Add("Delete selected department");
                     t_RootNode.LastNode.ContextMenuStrip.Items[t_RootNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
                     // Получение сотрудников для отдела
@@ -77,12 +75,12 @@ namespace Company
                             if (t_NodeDepartments.Length.Equals(0))
                             {
                                 t_ParentNodes[i].Nodes.Add("Departments");
-                                t_ParentNodes[i].LastNode.Name = "Departments";
-                                t_ParentNodes[i].LastNode.Tag = "Departments|Departments|" + t_ParentNodes[i].Name;
+                                t_ParentNodes[i].LastNode.Name = "departments";
+                                t_ParentNodes[i].LastNode.Tag = "department|departments|" + t_ParentNodes[i].Name;
                                 t_ParentNodes[i].LastNode.NodeFont = new Font("Times New Roman", 12, FontStyle.Bold);
                                 // Добавление контекстного меню для узла
                                 t_ParentNodes[i].LastNode.ContextMenuStrip = new ContextMenuStrip();
-                                t_ParentNodes[i].LastNode.ContextMenuStrip.Items.Add("Add department(s)");
+                                t_ParentNodes[i].LastNode.ContextMenuStrip.Items.Add("Add departments");
                                 t_ParentNodes[i].LastNode.ContextMenuStrip.Items[t_ParentNodes[i].LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
                                 t_ParentNodes[i].LastNode.ContextMenuStrip.Items.Add("Delete selected departments");
                                 t_ParentNodes[i].LastNode.ContextMenuStrip.Items[t_ParentNodes[i].LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
@@ -95,11 +93,9 @@ namespace Company
                                 t_ParentNodes[i].LastNode.LastNode.NodeFont = new Font("Times New Roman", 12);
                                 // Добавление контекстного меню для узла
                                 t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip = new ContextMenuStrip();
-                                t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Add("Add department(s)");
+                                t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Add("Add departments");
                                 t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items[t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
-                                t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Add("Add employee(s)");
-                                t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items[t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
-                                t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Add("Delete departments");
+                                t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Add("Add employees");
                                 t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items[t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
                                 t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Add("Delete selected department");
                                 t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items[t_ParentNodes[i].LastNode.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
@@ -117,11 +113,9 @@ namespace Company
                                 t_NodeDepartments[0].LastNode.NodeFont = new Font("Times New Roman", 12);
                                 // Добавление контекстного меню для узла
                                 t_NodeDepartments[0].LastNode.ContextMenuStrip = new ContextMenuStrip();
-                                t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Add("Add department(s)");
+                                t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Add("Add departments");
                                 t_NodeDepartments[0].LastNode.ContextMenuStrip.Items[t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
-                                t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Add("Add employee(s)");
-                                t_NodeDepartments[0].LastNode.ContextMenuStrip.Items[t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
-                                t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Add("Delete departments");
+                                t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Add("Add employees");
                                 t_NodeDepartments[0].LastNode.ContextMenuStrip.Items[t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
                                 t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Add("Delete selected department");
                                 t_NodeDepartments[0].LastNode.ContextMenuStrip.Items[t_NodeDepartments[0].LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
@@ -141,22 +135,22 @@ namespace Company
         {
             // Получение Employees, принадлежащих отделу
             //d_Database.GetEmployees(t_Node.Name);
-            d_Database.CallMethod("0|Employees", t_Node.Name);
+            d_Database.CallMethod("0|employees", t_Node.Name);
             string s_NameTable = d_Database.GetSetNameTable;
 
             foreach (DataRow d_Row in d_Database.GetSetDataset.Tables[0].Rows)
             {
                 // Если у узла нет промежуточного узла Employees, то сначала добавляем его, потом сам узел
-                TreeNode[] t_NodeEmployees = t_Node.Nodes.Find("Employees", false);
+                TreeNode[] t_NodeEmployees = t_Node.Nodes.Find("employees", false);
                 if (t_NodeEmployees.Length.Equals(0))
                 {
                     t_Node.Nodes.Add("Employees");
-                    t_Node.LastNode.Name = "Employees";
-                    t_Node.LastNode.Tag = "Employees|Employees|" + t_Node.Name;
+                    t_Node.LastNode.Name = "employees";
+                    t_Node.LastNode.Tag = "employee|employees|" + t_Node.Name;
                     t_Node.LastNode.NodeFont = new Font("Times New Roman", 12, FontStyle.Bold);
                     // Добавление контекстного меню для узла
                     t_Node.LastNode.ContextMenuStrip = new ContextMenuStrip();
-                    t_Node.LastNode.ContextMenuStrip.Items.Add("Add employee(s)");
+                    t_Node.LastNode.ContextMenuStrip.Items.Add("Add employees");
                     t_Node.LastNode.ContextMenuStrip.Items[t_Node.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;
                     t_Node.LastNode.ContextMenuStrip.Items.Add("Delete selected employees");
                     t_Node.LastNode.ContextMenuStrip.Items[t_Node.LastNode.ContextMenuStrip.Items.Count - 1].Visible = false;

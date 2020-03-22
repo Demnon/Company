@@ -35,13 +35,13 @@ namespace Company
 
             // Инициализация словаря
             d_NameMethods = new Dictionary<string, Action<string>>();
-            d_NameMethods.Add("0|Companies", GetDepartments);
-            d_NameMethods.Add("0|Departments", GetDepartments);
-            d_NameMethods.Add("0|RecursiveDepartments", GetRecursiveDepartments);
-            d_NameMethods.Add("0|Employees", GetEmployees);
-            d_NameMethods.Add("0|Department", GetDepartment);
-            d_NameMethods.Add("0|Employee", GetEmployee);
-            d_NameMethods.Add("1|Update", UpdateInfo);
+            d_NameMethods.Add("0|companies", GetDepartments);
+            d_NameMethods.Add("0|departments", GetDepartments);
+            d_NameMethods.Add("0|recursivedepartments", GetRecursiveDepartments);
+            d_NameMethods.Add("0|employees", GetEmployees);
+            d_NameMethods.Add("0|department", GetDepartment);
+            d_NameMethods.Add("0|employee", GetEmployee);
+            d_NameMethods.Add("1|update", UpdateInfo);
         }
 
         public DataSet GetSetDataset
@@ -72,7 +72,7 @@ namespace Company
             s_Data = new SqlDataAdapter(s_Request, s_Connection);
             d_Data.Tables.Clear();
             s_Data.Fill(d_Data);
-            s_NameTable = "Department";
+            s_NameTable = "department";
         }
 
         // Получение всех данных из таблицы Department с помощью рекурсивного запроса
@@ -82,7 +82,7 @@ namespace Company
             s_Data = new SqlDataAdapter(s_Request, s_Connection);
             d_Data.Tables.Clear();
             s_Data.Fill(d_Data);
-            s_NameTable = "Department";
+            s_NameTable = "department";
         }
 
         // Получение данных для конкретного отдела
@@ -92,7 +92,7 @@ namespace Company
             s_Data = new SqlDataAdapter(s_Request, s_Connection);
             d_Data.Tables.Clear();
             s_Data.Fill(d_Data);
-            s_NameTable = "Department";
+            s_NameTable = "department";
         }
 
         // Получение данных из таблицы Employee
@@ -102,7 +102,7 @@ namespace Company
             s_Data = new SqlDataAdapter(s_Request, s_Connection);
             d_Data.Tables.Clear();
             s_Data.Fill(d_Data);
-            s_NameTable = "Employee";
+            s_NameTable = "employee";
         }
 
         // Получение данных для конкретного сотрудника
@@ -112,7 +112,7 @@ namespace Company
             s_Data = new SqlDataAdapter(s_Request, s_Connection);
             d_Data.Tables.Clear();
             s_Data.Fill(d_Data);
-            s_NameTable = "Employee";
+            s_NameTable = "employee";
         }
 
         // Обновление данных в любой таблице (вставка, удаление, обновление)
