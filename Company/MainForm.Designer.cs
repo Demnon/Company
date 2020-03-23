@@ -41,10 +41,10 @@
             this.m_Add = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.t_StructDepartments = new System.Windows.Forms.TreeView();
-            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
             this.l_Explorer = new System.Windows.Forms.Label();
             this.d_Table = new System.Windows.Forms.DataGridView();
             this.l_Element = new System.Windows.Forms.Label();
+            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -173,12 +173,6 @@
             this.t_StructDepartments.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.t_StructDepartments_BeforeSelect);
             this.t_StructDepartments.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.t_StructDepartments_AfterSelect);
             // 
-            // imageListIcons
-            // 
-            this.imageListIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageListIcons.ImageSize = new System.Drawing.Size(20, 20);
-            this.imageListIcons.TransparentColor = System.Drawing.Color.White;
-            // 
             // l_Explorer
             // 
             this.l_Explorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(209)))));
@@ -203,16 +197,16 @@
             this.d_Table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.d_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.d_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(241)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -242,6 +236,12 @@
             this.l_Element.TabIndex = 1;
             this.l_Element.Text = "Element";
             this.l_Element.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // imageListIcons
+            // 
+            this.imageListIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListIcons.ImageSize = new System.Drawing.Size(20, 20);
+            this.imageListIcons.TransparentColor = System.Drawing.Color.White;
             // 
             // MainForm
             // 

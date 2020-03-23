@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 
@@ -31,9 +27,29 @@ namespace Company
             // Добавить столбец с возрастом для таблицы Employees
             if (s_Tag[0].Equals("employee"))
             {
-                DataGridViewColumn d_Column = new DataGridViewColumn(d_Table.Columns[0].HeaderCell);
-                d_Table.Columns.Add("SDfd","Dfd");
-                d_Table.Columns[d_Table.Columns.Count-1].DisplayIndex = 5;
+                // Если столбца нет, создаем его
+                if (!d_Table.Columns.Contains("c_Age"))
+                {
+                    DataGridViewColumn d_Column = new DataGridViewColumn(d_Table.Columns[0].HeaderCell);           
+                    d_Table.Columns.Add("c_Age", "Age");
+
+                    d_Table.Columns[d_Table.Columns.Count - 1].ReadOnly = true;
+                    d_Table.Columns[d_Table.Columns.Count - 1].DisplayIndex = d_Table.Columns["DateOfBirth"].DisplayIndex + 1;
+                }
+                // Получение возраста для каждой записи
+                for (int i = 0; i < d_Table.Rows.Count; i++)
+                {
+                    DateTime d_Date = (DateTime)d_Table["DateOfBirth", i].Value;
+                    d_Table["c_Age", i].Value = (new DateTime() + DateTime.Today.Subtract(d_Date)).Year;
+                }
+            }
+            // Если другая и таблица, и столбец есть, то удаляем его
+            else
+            {
+                if (d_Table.Columns.Contains("c_Age"))
+                {
+                    d_Table.Columns.Remove("c_Age");
+                }
             }
         }
 
@@ -49,7 +65,7 @@ namespace Company
                     if (!Database.d_AllowDBNull[d_Database.GetSetNameTable][d_Table.CurrentCell.ColumnIndex] &&
                         o_CellValue.ToString().Equals(""))
                     {
-                        throw new ApplicationException("Столбец с именем '" + d_Column.ColumnName + "' не должен иметь пустые значения!");
+                        throw new ApplicationException("The column with the name '" + d_Column.ColumnName + "' must not have empty values!");
                     }
                     break;
                 }

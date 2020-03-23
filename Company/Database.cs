@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -117,8 +114,8 @@ namespace Company
 
         // Обновление данных в любой таблице (вставка, удаление, обновление)
         private void UpdateInfo(string s_Sender)
-        {
-            SqlCommandBuilder s_Command = new SqlCommandBuilder(s_Data);
+        { 
+            SqlCommandBuilder s_Command = new SqlCommandBuilder(s_Data);           
             s_Data.Update(d_Data);
             d_Data.Clear();
             s_Data.Fill(d_Data);

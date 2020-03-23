@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -74,17 +69,33 @@ namespace Company
             }
             catch (SqlException e_Ex)
             {
-                new Notification(e_Ex.ToString()).ShowDialog();
-                //new Notification("Соединение с базой данных не установлено, проверьте правильность введенных данных. Возможно, сервер не активен либо базы данных не существует.").ShowDialog();
+                new Notification("A connection to the database has not been established; check that the entered data is correct. The server may be inactive or the database does not exist.").ShowDialog();
+                t_StructDepartments.Nodes.Clear();
+                if (d_Database != null)
+                {
+                    d_Database.Dispose();
+                }
+                d_Table.Columns.Clear();
+                l_Element.Text = "";
                 m_Save.Click -= SaveToolStripMenuItem_Click;
                 m_Cancel.Click -= CancelToolStripMenuItem_Click;
+                m_Add.DropDownItems.Clear();
+                m_Delete.DropDownItems.Clear();
             }
             catch (Exception e_Ex)
             {
-                new Notification(e_Ex.ToString()).ShowDialog();
+                new Notification(e_Ex.Message).ShowDialog();
+                t_StructDepartments.Nodes.Clear();
+                if (d_Database != null)
+                {
+                    d_Database.Dispose();
+                }
+                d_Table.Columns.Clear();
+                l_Element.Text = "";
                 m_Save.Click -= SaveToolStripMenuItem_Click;
                 m_Cancel.Click -= CancelToolStripMenuItem_Click;
-                //new Notification(e_Ex.Message).ShowDialog();
+                m_Add.DropDownItems.Clear();
+                m_Delete.DropDownItems.Clear();
             }
         }
 
@@ -117,9 +128,9 @@ namespace Company
             // Контекстное меню для кнопок добавить и удалить
             m_Add.DropDownItems.Clear();
             m_Delete.DropDownItems.Clear();
-            for (int i=0;i<t_StructDepartments.SelectedNode.ContextMenuStrip.Items.Count;i++)
+            for (int i=0;i<e.Node.ContextMenuStrip.Items.Count;i++)
             {
-                string s_Text = t_StructDepartments.SelectedNode.ContextMenuStrip.Items[i].Text;
+                string s_Text = e.Node.ContextMenuStrip.Items[i].Text;
                 if (s_Text.Contains("Add"))
                 {
                     m_Add.DropDownItems.Add(s_Text);
@@ -135,11 +146,11 @@ namespace Company
             }
 
             // Вывод информации в таблицу
-            string[] s_Tag = t_StructDepartments.SelectedNode.Tag.ToString().Split('|');
+            string[] s_Tag = e.Node.Tag.ToString().Split('|');
             Table.OutputInfoInTable(d_Table, s_Tag, d_Database);
             // Настройка внешнего вида таблицы
             // Заголовок таблицы
-            l_Element.Text = t_StructDepartments.SelectedNode.Text;
+            l_Element.Text = e.Node.Text;
             d_Table.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             d_Table.DefaultCellStyle.Font = new Font("Times New Roman",12);
         }
@@ -147,6 +158,7 @@ namespace Company
         // Изменение цвета ячейки при редактировании
         private void d_Table_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            l_Element.Focus();
             d_Table.CurrentCell.Style.BackColor = Color.LightGreen;
             b_Changes = true;
         }
@@ -162,9 +174,13 @@ namespace Company
                     return;
                 }
                 // Если пользователь подтвердил сохранение изменений
-                if (new Verification("Подтверждение сохранения изменений.Да/Нет?").ShowDialog() == DialogResult.Yes)
+                if (new Verification("Confirmation of saving changes. Yes/No?").ShowDialog() == DialogResult.Yes)
                 {     
-                    
+                    // Удаление столбца Age, если он есть
+                    if (d_Table.Columns.Contains("c_Age"))
+                    {
+                        d_Table.Columns.Remove("c_Age");
+                    }
                     // Сохранение изменений в бд
                     string[] s_Tag = t_StructDepartments.SelectedNode.Tag.ToString().Split('|');
                     d_Database.CallMethod("1|update", s_Tag[2]);
@@ -217,7 +233,7 @@ namespace Company
             }
             catch (SqlException e_Ex)
             {
-                new Notification("Сначала удалите дочерние элементы!").ShowDialog();
+                new Notification("Delete the children first!").ShowDialog();
                 b_Changes = false;
                 // Вывод информации в таблицу
                 string[] s_Tag = t_StructDepartments.SelectedNode.Tag.ToString().Split('|');
@@ -229,7 +245,7 @@ namespace Company
         private void CancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Если пользователь подтвердил отмену изменений
-            if (b_Changes && new Verification("Подтверждение отмены изменений.Да/Нет?").ShowDialog() == DialogResult.Yes)
+            if (b_Changes && new Verification("Confirmation of cancellation of changes. Yes/No?").ShowDialog() == DialogResult.Yes)
             {
                 // Вывод информации в таблицу
                 string[] s_Tag = t_StructDepartments.SelectedNode.Tag.ToString().Split('|');
@@ -259,7 +275,7 @@ namespace Company
                 for (int i = 0; i < a_AddElements.GetQuantityElements; i++)
                 {
                     d_Database.GetSetDataset.Tables[0].Rows.Add(Database.DefaultValues(s_Tag[1], s_Tag[2]));
-                    // Синий фон добавленной строки
+                    // Зеленый фон добавленной строки
                     d_Table.Rows[d_Table.Rows.Count-1].DefaultCellStyle.BackColor = Color.LightGreen;
                 }
                 b_Changes = true;
@@ -282,6 +298,7 @@ namespace Company
         {
             if (b_Changes == true)
             {
+                e.Cancel = true;
                 SaveToolStripMenuItem_Click(sender, e);
             }
         }
@@ -289,7 +306,7 @@ namespace Company
         // Исключения в таблице при вводе неверного формата (например, datatime)
         private void d_Table_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            new Notification("В столбце с именем '" + d_Table.Columns[e.ColumnIndex].Name + "' указано значение неверного формата!").ShowDialog();
+            new Notification("In the column with the name '" + d_Table.Columns[e.ColumnIndex].Name + "' invalid format specified!").ShowDialog();
         }
 
         // Проверка значения ячейки

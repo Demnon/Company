@@ -22,7 +22,7 @@ namespace Company
                 {
                 {"companies", new string[]{Guid.NewGuid().ToString(),"Отдел","O",null} },
                 {"departments", new string[]{ Guid.NewGuid().ToString(),"Отдел","O",null} },
-                { "employees", new string[]{"0","Имя","Фамилия","Отчество", "2000-01-01","0000","111111","Должность",s_Parameter} }
+                { "employees", new string[]{"0","Имя","Фамилия","Отчество", "2000-01-01","0000","111111","Должность",null} }
                 }[s_Name];
             }
             else
